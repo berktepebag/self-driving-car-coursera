@@ -1,0 +1,34 @@
+#1 Creating virtualenv
+
+sudo pip install virtualenv virtualenvwrapper
+sudo rm -rf ~/.cache/pip get-pip.py
+
+#1.1 Update bashrc & source
+
+# virtualenv and virtualenvwrapper
+export WORKON_HOME=$HOME/.virtualenvs
+export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
+source /usr/local/bin/virtualenvwrapper.sh
+
+#1.2 Create virtualenv
+
+mkvirtualenv dl4cv -p python3
+
+#2 Using python3.6 with Ubuntu 20.04
+
+#2.1 Install Python3.6
+
+sudo add-apt-repository ppa:deadsnakes/ppa
+sudo apt-get update
+sudo apt-get install python3.6
+
+#2.2 Error due to older Python version (default 3.8) - "from distutils.cmd import Command as DistutilsCommand"
+
+<a href="https://askubuntu.com/questions/1239829/modulenotfounderror-no-module-named-distutils-util">Link</a>
+
+sudo apt install python3.6-distutils
+
+#3 Running Carla
+
+cd $HOME/opt/CarlaSimulator # where the CarlaSimulator is located
+./CarlaUE4.sh -windowed -carla-no-networking
